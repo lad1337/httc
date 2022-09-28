@@ -1,0 +1,11 @@
+[Unit]
+Description=http CEC interface
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/tmp/httpc.pid
+ExecStart=/usr/local/bin/httc-server
+
+[Install]
+WantedBy=multi-user.target
