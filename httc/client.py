@@ -126,17 +126,17 @@ class CECClient:
         x = 0
         devices = {}
         while x < 15:
-          if addresses.IsSet(x):
-            devices[x] = {
-                'vendor_id': self.connection.GetDeviceVendorId(x),
-                'physical_address': int(str(self.connection.GetDevicePhysicalAddress(x))),
-                'logical_address': x,
-                'active': self.connection.IsActiveSource(x),
-                'cec_version': self.connection.GetDeviceCecVersion(x),
-                'power_status': PowerStatus(self.connection.GetDevicePowerStatus(x) == 0),
-                'osd_name': self.connection.GetDeviceOSDName(x)
-            }
-          x += 1
+            if addresses.IsSet(x):
+                devices[x] = {
+                    'vendor_id': self.connection.GetDeviceVendorId(x),
+                    'physical_address': int(str(self.connection.GetDevicePhysicalAddress(x))),
+                    'logical_address': x,
+                    'active': self.connection.IsActiveSource(x),
+                    'cec_version': self.connection.GetDeviceCecVersion(x),
+                    'power_status': PowerStatus(self.connection.GetDevicePowerStatus(x) == 0),
+                    'osd_name': self.connection.GetDeviceOSDName(x),
+                }
+            x += 1
         self._devices = devices
         return devices
 
@@ -154,10 +154,10 @@ class CECClient:
         return result_press and result_release
 
     def button_menu(self, dst, release=True):
-        return self.button_press("45", dst, release)
+        return self.button_press(BUTTON_NAMES['menu'], dst, release)
 
     def button_select(self, dst, release=True):
-        return self.button_press("44", dst, release)
+        return self.button_press(BUTTON_NAMES['select'], dst, release)
 
     def standby(self, src=None, dst=None):
         src = src or self.logical_address
