@@ -1,7 +1,7 @@
 # httc
 
 ## install
-you need the python CEC lib see https://github.com/Pulse-Eight/libcec for isntall intructions.
+you need the python CEC lib see https://github.com/Pulse-Eight/libcec for install intructions.
  
 then simply
 
